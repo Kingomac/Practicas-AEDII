@@ -104,4 +104,9 @@ public class EnlazadoArbolBinario<E> implements ArbolBinario<E> {
     public void suprimir() {
         nodo = null;
     }
+
+    @Override
+    public ArbolBinario<E> getPadre(ArbolBinario<E> hijo) {
+        return null;
+    }
 }

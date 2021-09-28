@@ -7,10 +7,10 @@ package actividad2;
 
 import arbolBinario.ArbolBinario;
 import arbolBinario.EnlazadoArbolBinario;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -163,22 +163,21 @@ public class Actividad2Test {
      *
      * Test of nodosNivel method, of class Actividad2.
      */
-    @Test
-    public void testVacioNodosNivel() {
-        System.out.println("nodos nivel vacío");
-        List<Integer> expResult = new LinkedList<>();
-        List<Integer> result = Actividad2.nodosNivel(vacio, 0);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testNodosNivel() {
-        System.out.println(" nodos  nivel");
-        List<Integer> expResult = Arrays.asList(3, 5);
-        List<Integer> result = Actividad2.nodosNivel(raiz, 2);
-        assertEquals(expResult, result);
-    }
-
+//    @Test
+//    public void testVacioNodosNivel() {
+//        System.out.println("nodos nivel vacío");
+//        List<Integer> expResult = new LinkedList<>();
+//        List<Integer> result = Actividad2.nodosNivel(vacio, 0);
+//        assertEquals(expResult, result);
+//    }
+//
+//    @Test
+//    public void testNodosNivel() {
+//        System.out.println(" nodos  nivel");
+//        List<Integer> expResult = Arrays.asList(3, 5);
+//        List<Integer> result = Actividad2.nodosNivel(raiz, 2);
+//        assertEquals(expResult, result);
+//    }
     /**
      * Ejercicio 4 Test of eliminarHojas method, of class Actividad2.
      */
@@ -215,7 +214,7 @@ public class Actividad2Test {
     public void testAlturaHoja() {
         System.out.println("altura hoja");
         int expResult = 0;
-        int result = Actividad2.altura(hoja1);
+        int result = Actividad2.alturaCorreción(hoja1);
         assertEquals(expResult, result);
     }
 
@@ -223,7 +222,7 @@ public class Actividad2Test {
     public void testAltura() {
         System.out.println("altura");
         int expResult = 2;
-        int result = Actividad2.altura(raiz);
+        int result = Actividad2.alturaCorreción(raiz);
         assertEquals(expResult, result);
     }
 
@@ -366,76 +365,75 @@ public class Actividad2Test {
     /**
      * Ejercicio 10 Test of visualizarPalabras method, of class Actividad2.
      */
-//    @Test
-//    public void testNoVisualizarPalabras() {
-//        System.out.println("visualizarPalabras");
-//        ByteArrayOutputStream output = new ByteArrayOutputStream();
-//        PrintStream ps = new PrintStream(output);
-//        System.setOut(ps); // Esto hace que System.out escriba en "output" en lugar de escribir por consola
-//        Actividad2.visualizarPalabras(vacio);
-//        String written = output.toString(); // Este toString recupera lo  escrito en "output"
-//        assertEquals("", written);
-//    }
-//
-//    @Test
-//    public void testVisualizarPalabras() {
-//        System.out.println("visualizarPalabras");
-//        ByteArrayOutputStream output = new ByteArrayOutputStream();
-//        PrintStream ps = new PrintStream(output);
-//        System.setOut(ps); // Esto hace que System.out escriba en "output" en lugar de escribir por consola
-//        Actividad2.visualizarPalabras(nodo1Char);
-//        String expected = "63\r\n65\r\n";
-//        String written = output.toString(); // Este toString recupera lo escrito en "output"
-//        assertEquals(expected, written);
-//    }
-//
-//    /**
-//     * Ejercicio 11 Test of padre method, of class Actividad2.
-//     */
-//    @Test
-//    public void testVacioPadre() {
-//        System.out.println("padre vacío");
-//        Integer expResult = null;
-//        Integer result = Actividad2.padre(vacio, 2);
-//        assertEquals(expResult, result);
-//    }
-//
-//    @Test
-//    public void testNoPadre() {
-//        System.out.println("padre no");
-//        Object expResult = null;
-//        Object result = Actividad2.padre(raiz, 2);
-//        assertEquals(expResult, result);
-//    }
-//
-//    @Test
-//    public void testPadre() {
-//        System.out.println("padre");
-//        Object expResult = 11;
-//        Object result = Actividad2.padre(raiz, 3);
-//        assertEquals(expResult, result);
-//    }
-//
-//    /**
-//     * Ejercicio 12 Test of padre method, of class Actividad2.
-//     */
-//    @Test
-//    public void testDistanciaVacioFalse() {
-//        System.out.println("distancia árbol vacío false");
-//        assertFalse(Actividad2.distanciaK(vacio, 2, 0));
-//    }
-//
-//    @Test
-//    public void testDistanciaFalse() {
-//        System.out.println("distancia false");
-//        assertFalse(Actividad2.distanciaK(raiz, 5, 1));
-//    }
-//
-//    @Test
-//    public void testDistanciaTrue() {
-//        System.out.println("distancia true");
-//        assertTrue(Actividad2.distanciaK(raiz, 5, 2));
-//    }
-//
-//*/
+    @Test
+    public void testNoVisualizarPalabras() {
+        System.out.println("visualizarPalabras");
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        System.setOut(ps); // Esto hace que System.out escriba en "output" en lugar de escribir por consola
+        Actividad2.visualizarPalabras(vacio);
+        String written = output.toString(); // Este toString recupera lo  escrito en "output"
+        assertEquals("", written);
+    }
+
+    @Test
+    public void testVisualizarPalabras() {
+        System.out.println("visualizarPalabras");
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        System.setOut(ps); // Esto hace que System.out escriba en "output" en lugar de escribir por consola
+        Actividad2.visualizarPalabras(nodo1Char);
+        String expected = "63\r\n65\r\n";
+        String written = output.toString(); // Este toString recupera lo escrito en "output"
+        assertEquals(expected, written);
+    }
+
+    /**
+     * Ejercicio 11 Test of padre method, of class Actividad2.
+     */
+    @Test
+    public void testVacioPadre() {
+        System.out.println("padre vacío");
+        Integer expResult = null;
+        Integer result = Actividad2.padre(vacio, 2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testNoPadre() {
+        System.out.println("padre no");
+        Object expResult = null;
+        Object result = Actividad2.padre(raiz, 2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testPadre() {
+        System.out.println("padre");
+        Object expResult = 11;
+        Object result = Actividad2.padre(raiz, 3);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Ejercicio 12 Test of distancia method, of class Actividad2.
+     */
+    @Test
+    public void testDistanciaVacioFalse() {
+        System.out.println("distancia árbol vacío false");
+        assertFalse(Actividad2.nivelK(vacio, 2, 0));
+    }
+
+    @Test
+    public void testDistanciaFalse() {
+        System.out.println("distancia false");
+        assertFalse(Actividad2.nivelK(raiz, 5, 1));
+    }
+
+    @Test
+    public void testDistanciaTrue() {
+        System.out.println("distancia true");
+        assertTrue(Actividad2.nivelK(raiz, 5, 2));
+    }
+
 }

@@ -23,4 +23,6 @@ public interface ArbolBinario<E> {
     public void setHijoDer(ArbolBinario<E> hd) throws ArbolVacioExcepcion, NullPointerException;
 
     public void suprimir();
+
+    public ArbolBinario<E> getPadre(ArbolBinario<E> hijo) throws ArbolVacioExcepcion;
 }
