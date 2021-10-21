@@ -18,6 +18,17 @@ public class Actividad4 {
         System.out.println("Sin ordenar: " + lista);
         heapSort(lista);
         System.out.println("Ordenado: " + lista);
+        /*Heap heapPrueba = new Heap();
+        heapPrueba.introducir(18);
+        heapPrueba.introducir(19);
+        heapPrueba.introducir(20);
+        heapPrueba.arreglarHeap();
+        try {
+            //heapPrueba.suprimirMax();
+            System.out.println(heapPrueba.recuperarMax());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }*/
     }
 
     public static <E extends Comparable<E>> void heapSort(List<E> arr) {
@@ -31,6 +42,21 @@ public class Actividad4 {
                 arr.add(heap.suprimirMax());
             } catch (HeapVacioExcepcion ex) {
                 System.err.println("ERROR: " + ex.getMessage());
+                break;
+            }
+        }
+    }
+
+    public static <E extends Comparable<E>> void heapSort(int[] arr) {
+        Heap<Integer> heap = new Heap<>();
+        for (int i = 0; i < arr.length; i++) {
+            heap.insertar(arr[i]);
+        }
+        heap.arreglarHeap();
+        for (int i = 0; i < arr.length; i++) {
+            try {
+                arr[i] = heap.suprimirMax();
+            } catch (HeapVacioExcepcion ex) {
                 break;
             }
         }
