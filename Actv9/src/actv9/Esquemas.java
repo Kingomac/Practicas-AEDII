@@ -54,25 +54,38 @@ public class Esquemas {
         }
         return mayor;
     }
-
-    public static Lista<String> llenarCDVoraz(int capacidadMaxima, Map<String, Integer> espacioProgramas) {
-        /*List<String> claves = new ArrayList<>();
-        Iterator<String> it = espacioProgramas.getClaves();
-        while (it.hasNext()) {
-            claves.add(it.next());
-        }
-
-        for (int i = 0; i < claves.size(); i++) {
-            for (int j = 0; j < claves.size(); j++) {
-                if (i != j) {
-                    int duracion = espacioProgramas.get(claves.get(i));
-                    while (duracion < capacidadMaxima) {
-                        duracion += espacioProgramas.get(claves.get(j));
-                    }
+    
+    public static List<String> llenarCDVoraz(int capMax, Map<String, Integer> programas) {
+        List<String> claves = listaClaves(programas);
+        List<String> solucion = new LinkedList<>();
+        int i = 0;
+        final int n = (int) Math.pow(2, claves.size());
+        int c = 0;
+        while (i < n && c < capMax) {
+            String caso = Integer.toBinaryString(i);
+            int c2 = 0;
+            List<String> temp = new LinkedList<>();
+            for (int j = 0; j < caso.length(); j++) {
+                if (caso.charAt(j) == '1') {
+                    temp.add(claves.get(j));
+                    c2 += programas.get(claves.get(j));
                 }
             }
-        }*/
-        return new ListaEnlazada<>();
+            if (c2 <= capMax && c2 > c) {
+                c = c2;
+                solucion = temp;
+            }
+            i++;
+        }
+        return solucion;
+    }
+
+    private static <E, T> List<E> listaClaves(Map<E, T> m) {
+        List<E> l = new LinkedList<>();
+        for (E e : m.keySet()) {
+            l.add(e);
+        }
+        return l;
     }
 
 }
