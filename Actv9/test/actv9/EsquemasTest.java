@@ -96,40 +96,40 @@ public class EsquemasTest {
         assertTrue(result);
     }
 
-//    /**
-//     * Test of llenarMochila method, of class Esquemas.
-//     */
-//    @Test
-//    public void testLlenarMochila_3args() {
-//        System.out.println("llenarMochila");
-//        Map<String, Integer> mapaActual = Esquemas.llenarMochila(55, cantidades, volumenes);
-//
-//        Map<String, Integer> mapaEsperado = new HashMap<>();
-//        mapaEsperado.insertar("Coche", 1);
-//        mapaEsperado.insertar("Muñeca", 2);
-//
-//        boolean result = mapasIguales(mapaActual, mapaEsperado);
-//
-//        assertTrue(result);
-//    }
-//
-//    /**
-//     * Test of llenarMochila method, of class Esquemas.
-//     */
-//    @Test
-//    public void testLlenarMochila_5args() {
-//        System.out.println("llenarMochila 2");
-//        Map<String, Integer> mapaActual = Esquemas.llenarMochila(55, 50, cantidades, volumenes, pesos);
-//
-//        Map<String, Integer> mapaEsperado = new HashMap<>();
-//        mapaEsperado.insertar("Coche", 1);
-//        mapaEsperado.insertar("Muñeca", 1);
-//
-//        boolean result = mapasIguales(mapaActual, mapaEsperado);
-//
-//        assertTrue(result);
-//    }
-//
+    /**
+     * Test of llenarMochila method, of class Esquemas.
+     */
+    @Test
+    public void testLlenarMochila_3args() {
+        System.out.println("llenarMochila");
+        Map<String, Integer> mapaActual = Esquemas.llenarMochila(55, cantidades, volumenes);
+
+        Map<String, Integer> mapaEsperado = new HashMap<>();
+        mapaEsperado.insertar("Coche", 1);
+        mapaEsperado.insertar("Muñeca", 2);
+
+        boolean result = mapasIguales(mapaActual, mapaEsperado);
+
+        assertTrue(result);
+    }
+
+    /**
+     * Test of llenarMochila method, of class Esquemas.
+     */
+    @Test
+    public void testLlenarMochila_5args() {
+        System.out.println("llenarMochila 2");
+        Map<String, Integer> mapaActual = Esquemas.llenarMochila(55, 50, cantidades, volumenes, pesos);
+
+        Map<String, Integer> mapaEsperado = new HashMap<>();
+        mapaEsperado.insertar("Coche", 1);
+        mapaEsperado.insertar("Muñeca", 1);
+
+        boolean result = mapasIguales(mapaActual, mapaEsperado);
+
+        assertTrue(result);
+    }
+
     /**
      * Test of llenarCD_Voraz method, of class Esquemas.
      */
